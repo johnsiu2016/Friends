@@ -2,6 +2,9 @@
 <manifest package="com.example.john.friends"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <permission android:name="com.example.john.friends.provider.READWRITE"/>
+    <uses-permission android:name="com.example.john.friends.provider.READWRITE"/>
+    
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,6 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <provider
+            android:authorities="com.example.john.friends.provider"
+            android:name="com.example.john.friends.FriendsProvider"
+            android:exported="true"
+            android:readPermission="com.example.john.friends.provider.READWRITE"
+            android:writePermission="com.example.john.friends.provider.READWRITE"/>
     </application>
 
 </manifest>
